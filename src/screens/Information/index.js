@@ -1,7 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-import {View, Text, FlatList, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 import jenny from '../../assets/images/jenny.jpg';
 import header from '../../assets/svgs/bar';
@@ -36,6 +43,8 @@ const employeelist = [
 ];
 
 const Information = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.head}>
@@ -80,28 +89,30 @@ const Information = () => {
         contentContainerStyle={{paddingBottom: 15}}
         renderItem={({item}) => {
           return (
-            <View style={styles.employeestyling}>
-              <View>
-                <Image source={item.img} />
+            <TouchableOpacity onPress={() => navigation.navigate('Messenger')}>
+              <View style={styles.employeestyling}>
+                <View>
+                  <Image source={item.img} />
+                </View>
+
+                <View
+                  style={[
+                    styles.onlinestatus,
+                    {backgroundColor: item.online ? '#95F139' : 'red'},
+                  ]}
+                />
+
+                <View style={styles.employeetxt}>
+                  <Text>{item.text1}</Text>
+
+                  <Text style={styles.profession}>{'PROFESION'}</Text>
+                </View>
+
+                <View style={styles.dotsimg}>
+                  <SvgXml xml={dots} />
+                </View>
               </View>
-
-              <View
-                style={[
-                  styles.onlinestatus,
-                  {backgroundColor: item.online ? '#95F139' : 'red'},
-                ]}
-              />
-
-              <View style={styles.employeetxt}>
-                <Text>{item.text1}</Text>
-
-                <Text style={styles.profession}>{'PROFESION'}</Text>
-              </View>
-
-              <View style={styles.dotsimg}>
-                <SvgXml xml={dots} />
-              </View>
-            </View>
+            </TouchableOpacity>
           );
         }}
       />

@@ -10,6 +10,8 @@ import Foro from '../screens/Foro';
 import Sabias from '../screens/Sabias';
 import Information from '../screens/Information';
 import ForoSecond from '../screens/ForoSecond';
+import Messenger from '../screens/Messenger';
+import Payments from '../screens/Payments';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,6 +35,8 @@ function TabNavigator() {
       <Tab.Screen name="Foro" component={Foro} />
       <Tab.Screen name="Information" component={Information} />
       <Tab.Screen name="ForoSecond" component={ForoSecond} />
+      <Tab.Screen name="Messenger" component={Messenger} />
+      <Tab.Screen name="Payments" component={Payments} />
     </Tab.Navigator>
   );
 }

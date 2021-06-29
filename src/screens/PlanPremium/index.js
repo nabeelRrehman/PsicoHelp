@@ -43,7 +43,7 @@ const PlanPremium = () => {
         keyExtractor={item => item.id}
         renderItem={({item}) => {
           return (
-            <View style={{}}>
+            <TouchableOpacity onPress={() => navigation.navigate('Payments')}>
               <View
                 style={{
                   marginHorizontal: 10,
@@ -113,7 +113,7 @@ const PlanPremium = () => {
                   </TouchableOpacity>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
           );
         }}
       />
